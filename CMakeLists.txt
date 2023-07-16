@@ -44,4 +44,5 @@ target_include_directories(${PROJECT_NAME} PUBLIC src)
 
 target_link_directories(${PROJECT_NAME} PUBLIC src)
 
-target_link_libraries(${PROJECT_NAME} auth)
+target_link_libraries(${PROJECT_NAME} auth cargo calc )
+

@@ -1,9 +1,6 @@
 #include "auth.hpp"
 
 
-// for convenience
-using json = nlohmann::json;
-
 std::string getToken(std::string username, std::string password) {
     json j = {
         {"username", username},
