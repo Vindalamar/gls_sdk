@@ -26,11 +26,11 @@ int project_create(std::string authToken, std::string title) {
 std::vector<std::string> get_GP_titlelist(std::string authToken, space_type cargo_space_type) {
     std::string st = st_to_string(cargo_space_type);
     cpr::Response r = cpr::Get(cpr::Url{"https://back.glsystem.net/api/v1/cargo-space/"},
-                               cpr::Parameters{{"cargo_space_type", st}}, 
+                               cpr::Parameters{{"cargo_space_type", st}, {"page_size", std::to_string(INT_MAX)}}, 
                                cpr::Header{{"Content-Type", "application/json"}}, cpr::Bearer{authToken});
     std::vector<std::string> res;
     if (r.status_code != 200)
-        throw std::runtime_error("Get space-type id Erorr code: " +  std::to_string(r.status_code));
+        throw std::runtime_error("Get title-list Erorr code: " +  std::to_string(r.status_code));
     json j = json::parse(r.text);
 
     for (size_t i = 0; i < j["count"]; i++)
