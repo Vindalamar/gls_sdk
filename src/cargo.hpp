@@ -17,8 +17,47 @@ class Cargo {
 
     json to_json();
     
-    int get_id();
-    void set_count(int c);
+    int getId();
+
+    std::string getTitle();
+    void setTitle(std::string t);
+
+    std::string getArticle();
+    void setArticle(std::string a);
+
+    std::string getColor();
+    void setColor(std::string c);
+
+    int getLength();
+    void setLength(int l);
+
+    int getWidth();
+    void setWidth(int w);
+
+    int getHeight();
+    void setHeight(int h);
+
+    int getMass();
+    void setMass(int m);
+    
+    int getStackLimit();
+    void setStackLimit(int sl);
+
+    int getMarginLen();
+    void setMarginLen(int ml);
+
+    int getMarginWidth();
+    void setMarginWidth(int mw);
+
+    int getCount();
+    void setCount(int c);
+
+    bool getStacking();
+    void setStacking(bool s);
+
+    bool getTurnover();
+    void setTurnover(bool t);
+
     void save_cargo(std::string authToken);
 };
 
@@ -37,5 +76,9 @@ class CargoGroup {
 };
 
 Cargo get_cargo(std::string authToken, int id);
+
+void delete_cargo(std::string authToken, int id);
+
+void refresh_cargo(std::string authToken, Cargo cargo, int id);
 
 std::vector<Cargo> get_cargo_list(std::string authToken);
