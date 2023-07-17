@@ -18,7 +18,7 @@ int project_create(std::string authToken, std::string title) {
     cpr::Response r = cpr::Post(cpr::Url{"https://back.glsystem.net/api/v1/project/"},
                                cpr::Body{j.dump(2)}, cpr::Header{{"Content-Type", "application/json"}}, cpr::Bearer{authToken});
     if (r.status_code != 201)
-        return -1;
+        throw std::runtime_error("Project create Erorr code: " +  std::to_string(r.status_code));
     j = json::parse(r.text);
     return j["id"];
 }
@@ -30,7 +30,7 @@ std::vector<std::string> get_GP_titlelist(std::string authToken, space_type carg
                                cpr::Header{{"Content-Type", "application/json"}}, cpr::Bearer{authToken});
     std::vector<std::string> res;
     if (r.status_code != 200)
-        return res;
+        throw std::runtime_error("Get space-type id Erorr code: " +  std::to_string(r.status_code));
     json j = json::parse(r.text);
 
     for (size_t i = 0; i < j["count"]; i++)
@@ -45,7 +45,7 @@ int get_GP_id(std::string authToken, space_type cargo_space_type, std::string ti
                                cpr::Parameters{{"cargo_space_type", st}, {"title__icontains", title__icontains}}, 
                                cpr::Header{{"Content-Type", "application/json"}}, cpr::Bearer{authToken});
     if (r.status_code != 200)
-        return -1;
+       throw std::runtime_error("Get titlelist Erorr code: " +  std::to_string(r.status_code));
     json j = json::parse(r.text);
     return j["results"][0]["id"];
 }
@@ -70,7 +70,7 @@ int create_calculation(std::string authToken, int projId, std::vector<int> gpIds
                                cpr::Bearer{authToken}, cpr::Body(j.dump(2)));
 
     if (r.status_code != 201)
-        return -1;
+        throw std::runtime_error("Calculation create Erorr code: " +  std::to_string(r.status_code));
     
     j = json::parse(r.text);
     return j["id"];
@@ -84,7 +84,7 @@ json get_calc_results(std::string authToken, int projId, int calcId) {
 
 
     if (r.status_code != 200)
-        return j;
+        throw std::runtime_error("Calculation result Erorr code: " +  std::to_string(r.status_code));
     
     j = json::parse(r.text);
 

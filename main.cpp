@@ -13,7 +13,7 @@
 
 int main(int argc, char** argv) {
 
-    std::string token = getToken("username", "password");
+    std::string token = getToken("username", "pass");
     int pr_id = project_create(token, "TestProject");
     // std::vector<std::string> r = get_GP_titlelist(token, space_type::container);
     int gp_id = get_GP_id(token, space_type::container, "40' DV (valid)");
