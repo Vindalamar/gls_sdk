@@ -41,8 +41,8 @@ void Cargo::save_cargo(std::string authToken) {
 
 CargoGroup:: CargoGroup(std::string title, int pallet): title{title}, pallet{pallet} {}
 
-void CargoGroup::addCargo(Cargo crgo) {
-    cargoes.push_back(crgo.to_json());
+void CargoGroup::addCargo(Cargo* crgo) {
+    cargoes.push_back(crgo->to_json());
 }
 
 json CargoGroup::to_json() {

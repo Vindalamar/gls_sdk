@@ -70,7 +70,7 @@ class CargoGroup {
 
     CargoGroup(std::string title, int pallet);
 
-    void addCargo(Cargo crgo);
+    void addCargo(Cargo* crgo);
 
     json to_json();
 };
