@@ -42,7 +42,8 @@ void refresh_cargo(std::string authToken, Cargo cargo, int id); // Refresh serve
 int project_create(std::string authToken, std::string title); // Returns project id
 int get_GP_id(std::string authToken, space_type cargo_space_type, std::string title__icontains); // Retern Cargo Space id
 
-// Arguments for creating calculation are Authorization token, project id, cargo space id, and cargo groups
-int create_calculation(std::string authToken, int projId, std::vector<int> gpIds, std::vector<CargoGroup> groups); // Returns id of calculation
+// Arguments to create calculation are: Authorization token, project id, cargo space id, and cargo groups
+// Returns id of calculation
+int create_calculation(std::string authToken, int projId, std::vector<int> gpIds, std::vector<CargoGroup> groups);
 json get_calc_results(std::string authToken, int projId, int calcId); // returns result json
 ```
