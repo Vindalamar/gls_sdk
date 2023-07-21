@@ -37,7 +37,7 @@ void CargoGroup::addCargo(Cargo* crgo);
 Cargo get_cargo(std::string authToken, int id); 
 // Delete cargo from server
 void delete_cargo(std::string authToken, int id); 
-// Refresh server cargo with passed as asrgument Cargo
+// Refresh server cargo with passed as argument Cargo
 void refresh_cargo(std::string authToken, Cargo cargo, int id);
 ```
 ## Calculation components
