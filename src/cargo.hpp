@@ -16,6 +16,8 @@ class Cargo {
     Cargo(json j);
 
     json to_json();
+
+    void save_cargo(std::string authToken);
     
     int getId();
 
@@ -57,8 +59,6 @@ class Cargo {
 
     bool getTurnover();
     void setTurnover(bool t);
-
-    void save_cargo(std::string authToken);
 };
 
 class CargoGroup {

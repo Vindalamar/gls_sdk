@@ -2,7 +2,7 @@
 
 #include "cargo.hpp"
 
-enum class space_type {pallet, container, van, truck };
+enum class space_type {pallet, container, van, truck};
 
 std::string st_to_string(space_type n);
 
