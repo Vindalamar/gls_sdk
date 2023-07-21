@@ -27,14 +27,18 @@ Cargo(std::string title, int length, int width, int height, int mass, int id = -
     bool stacking = true, int stacking_limit = 0, bool turnover = true, std::string article = "string", 
     int margin_length = 0, int margin_width = 0, int count = 1, std::string color = "#808080");
 Cargo(json j);
-void Cargo::save_cargo(std::string authToken); // Save cargo on server
+// Save cargo on server
+void Cargo::save_cargo(std::string authToken);
 
 CargoGroup(std::string title, int pallet);
 void CargoGroup::addCargo(Cargo* crgo);
 
-Cargo get_cargo(std::string authToken, int id); // Get cargo from server
-void delete_cargo(std::string authToken, int id); // Delete cargo from server
-void refresh_cargo(std::string authToken, Cargo cargo, int id); // Refresh server cargo with passed as asrgument Cargo
+// Get cargo from server
+Cargo get_cargo(std::string authToken, int id); 
+// Delete cargo from server
+void delete_cargo(std::string authToken, int id); 
+// Refresh server cargo with passed as asrgument Cargo
+void refresh_cargo(std::string authToken, Cargo cargo, int id);
 ```
 ## Calculation components
 
