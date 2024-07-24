@@ -1,4 +1,5 @@
 Simple C++ sdk for Garpix Load System
+
 Documentation for Garpix Load System https://glsystem.net/dokumentaciya-k-api
 
 Simple use case in the [main.cpp](https://github.com/Vindalamar/gls_sdk/blob/main/main.cpp)
